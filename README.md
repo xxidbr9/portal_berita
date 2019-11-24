@@ -11,6 +11,7 @@ Requirements
 buat Database dengan nama:
 db_portal_berita. 
 atau ganti di include/controller/database => $db
+import sqlnya 
 
 
 nb:
