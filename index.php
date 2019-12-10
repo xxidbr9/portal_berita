@@ -1,9 +1,9 @@
 <?php
 error_reporting(0);
+session_start();
 require 'include/controller/database.php';
 use DB\Controller\Database as DB;
-
-$db     =  new DB();
+$db     = new DB();
 $d      = $_SERVER['PHP_SELF'];
 $dir    = str_replace('index.php','',$d);
 
@@ -31,7 +31,7 @@ $re_img = '/<img.*?src="([^"]+)".*?>/';
 $r =  preg_match_all($re_img, $content, $arr_img);
 //var_dump($arr_img[1]);
 $img = $arr_img[1][0];
-echo $img;
+// echo $img;
 
 // var_dump($_POST);
 
@@ -50,8 +50,9 @@ if($_GET != ''|| isset($_GET)){
     }else if($v == 'read'){
         $read = $db->read($id); 
         include 'include/view/read.php';
+   
     }else if($p == 'add'){
-        $db->store($title,$sub_title,$content,$img);
+        $db->store($title,$sub_title,$content,$img,1);
         header("location:".$dir."?view=list");
     }else if($p == 'del'){
         $db->delete($id);
@@ -59,6 +60,11 @@ if($_GET != ''|| isset($_GET)){
     }else if($p == 'update'){
         $db->update($id_req,$title,$sub_title,$content,$img);
         header("location:".$dir."?view=list");
+
+    }else if($p == 'logout'){
+        session_destroy();
+        session_write_close();
+        header("location:".$dir."");
     }else{
         $show = $db->show();
         include 'include/view/show.php';
