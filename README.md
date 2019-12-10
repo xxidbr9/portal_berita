@@ -20,7 +20,7 @@ nb:
 * penambahan login , pengembangan penambahan user
 
 * USER , PASS
-username = admin
-password = admin
+- username = admin
+- password = admin
 
 
