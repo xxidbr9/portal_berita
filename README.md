@@ -17,5 +17,10 @@ import sqlnya
 nb:
 * Masih banyak bug, seperti tidak bisa masukan gambar di awal paragraf
 * masukan gambar di tengah-tengah pos , otomatis menjadi cover
+* penambahan login , pengembangan penambahan user
+
+* USER , PASS
+username = admin
+password = admin
 
 
